@@ -135,7 +135,7 @@ class OrderViewSet(
     serializer_class = OrderSerializer
 
     def get_queryset(self):
-        return super().get_queryset().filter(user=self.request.user)
+        return self.queryset.filter(user=self.request.user)
 
     def get_serializer_class(self):
         if self.action == "list":
